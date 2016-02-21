@@ -1,0 +1,67 @@
+CODE FIRST :
+
+1 - Prérequis
+*************
+VS2015
+EntityFramework
+
+2 - Model
+*********
+
+Ajouter un modèle Entity basé sur un modèle Code First vide
+
+3 - Code
+********
+
+Préparer les classes
+Pour les liens, prévoir des 
+- public virtual T pour les clés
+- public virtual List<T> pour les collections
+
+4 - Contexte
+************
+
+Le contexte correspond au repository de données. Il peut y en avoir plusieurs par projet.
+Dans le contexte (qui hérite de DbContext), ajouter les DbSet.
+- public virtual DbSet<T> Objets { get; set; }
+
+5 - Ajouter le support des migrations
+*************************************
+
+Dans Package Manager Console, activer les migrations :
+- Enable-Migrations
+
+6 - Ajouter une migration DropAll
+*********************************
+
+Cette migration permettra de détruire tous les objets de la baes. On le créé au début mais il sera compléter au fur et à mesure 
+
+- Add-Migration DropAll
+
+On y ajouter les instructions de destructions :
+- DropTable("MaTable");
+
+Pour l'exécuter, on utilisera :
+- Update-Database -Target:DropAll
+
+7 - Compléter le modèle
+***********************
+
+Ajouter les objets des différentes classes.
+Générer le script de migrations correspondant à ces modifications 
+
+- Add-Migration MesModificationsInitiales
+
+Appliquer les modifications à la base
+
+- Update-Database
+
+8 - Réinitialiser les objets de la base
+***************************************
+
+S'il devient nécessaire de supprimer toutes tracesde migrations pour réinitialiser la base, il faut 
+
+- Effacer le contenu du répertoires Migrations qui a été généré
+- Supprimer la table ___MigrationHistory de la base de données
+- Réactiver le support des migrations Enable-Migrations -Force
+- Réjouer Add-Migration MesModificationsInitiales
