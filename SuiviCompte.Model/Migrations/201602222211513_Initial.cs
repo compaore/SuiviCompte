@@ -14,43 +14,43 @@ namespace SuiviCompte.Model.Migrations
                         Id = c.Int(nullable: false, identity: true),
                         Montant = c.Decimal(nullable: false, precision: 18, scale: 2),
                         Commentaire = c.String(),
-                        Nature_Code = c.String(maxLength: 1),
-                        Sens_Id = c.String(maxLength: 128),
-                        TypeEcriture_Id = c.Int(),
+                        Nature_Id = c.String(maxLength: 128),
+                        Sens_Code = c.String(maxLength: 1),
+                        TypeEcriture_Id = c.String(maxLength: 128),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.NATURE_ECRITURE", t => t.Nature_Code)
-                .ForeignKey("dbo.SensEcritures", t => t.Sens_Id)
+                .ForeignKey("dbo.NatureEcritures", t => t.Nature_Id)
+                .ForeignKey("dbo.SensEcritures", t => t.Sens_Code)
                 .ForeignKey("dbo.TypeEcritures", t => t.TypeEcriture_Id)
-                .Index(t => t.Nature_Code)
-                .Index(t => t.Sens_Id)
+                .Index(t => t.Nature_Id)
+                .Index(t => t.Sens_Code)
                 .Index(t => t.TypeEcriture_Id);
             
             CreateTable(
-                "dbo.NATURE_ECRITURE",
+                "dbo.NatureEcritures",
                 c => new
                     {
-                        CODE = c.String(nullable: false, maxLength: 1),
-                        LIBELLE = c.String(),
-                        COMMENTAIRE = c.String(),
+                        Id = c.String(nullable: false, maxLength: 128),
+                        Libelle = c.String(maxLength: 255),
+                        Commentaire = c.String(),
                     })
-                .PrimaryKey(t => t.CODE);
+                .PrimaryKey(t => t.Id);
             
             CreateTable(
                 "dbo.SensEcritures",
                 c => new
                     {
-                        Id = c.String(nullable: false, maxLength: 128),
-                        Libelle = c.String(),
+                        Code = c.String(nullable: false, maxLength: 1),
+                        Libelle = c.String(maxLength: 255),
                     })
-                .PrimaryKey(t => t.Id);
+                .PrimaryKey(t => t.Code);
             
             CreateTable(
                 "dbo.TypeEcritures",
                 c => new
                     {
-                        Id = c.Int(nullable: false, identity: true),
-                        Libelle = c.String(),
+                        Id = c.String(nullable: false, maxLength: 128),
+                        Libelle = c.String(maxLength: 255),
                         Commentaire = c.String(),
                     })
                 .PrimaryKey(t => t.Id);
@@ -60,14 +60,14 @@ namespace SuiviCompte.Model.Migrations
         public override void Down()
         {
             DropForeignKey("dbo.Ecritures", "TypeEcriture_Id", "dbo.TypeEcritures");
-            DropForeignKey("dbo.Ecritures", "Sens_Id", "dbo.SensEcritures");
-            DropForeignKey("dbo.Ecritures", "Nature_Code", "dbo.NATURE_ECRITURE");
+            DropForeignKey("dbo.Ecritures", "Sens_Code", "dbo.SensEcritures");
+            DropForeignKey("dbo.Ecritures", "Nature_Id", "dbo.NatureEcritures");
             DropIndex("dbo.Ecritures", new[] { "TypeEcriture_Id" });
-            DropIndex("dbo.Ecritures", new[] { "Sens_Id" });
-            DropIndex("dbo.Ecritures", new[] { "Nature_Code" });
+            DropIndex("dbo.Ecritures", new[] { "Sens_Code" });
+            DropIndex("dbo.Ecritures", new[] { "Nature_Id" });
             DropTable("dbo.TypeEcritures");
             DropTable("dbo.SensEcritures");
-            DropTable("dbo.NATURE_ECRITURE");
+            DropTable("dbo.NatureEcritures");
             DropTable("dbo.Ecritures");
         }
     }

@@ -12,17 +12,17 @@ namespace SuiviCompte.Model
     /// <summary>
     /// Nature de l'écriture : Récurrent, Exceptionnel, Non-récurrent
     /// </summary>
-    [Table("NATURE_ECRITURE")]
+    //[Table("NATURE_ECRITURE")]
     public class NatureEcriture
     {
         //public int Id { get; set; }
-        [Key, Column("CODE", TypeName="nvarchar"), MinLength(1), MaxLength(1)]
-        public string Code { get; set; }
+        //[Key, MinLength(1), MaxLength(1)]
+        public string Id { get; set; }
 
-        [Column("LIBELLE")]
+        [MinLength(0), MaxLength(255)]
         public string Libelle { get; set; }
 
-        [Column("COMMENTAIRE")]
+        //[Column("COMMENTAIRE", TypeName="nvarchar")]
         public string Commentaire { get; set; }
     }
 }
