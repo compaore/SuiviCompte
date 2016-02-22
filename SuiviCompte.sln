@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SuiviCompte.Model", "SuiviC
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SuiviCompte.CommandLineTest", "SuiviCompte.CommandLineTest\SuiviCompte.CommandLineTest.csproj", "{74DBDAFC-C284-4BDE-8720-C7B8F30731A1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SuiviCompte.Contract", "SuiviCompte.Contract\SuiviCompte.Contract.csproj", "{89F05E04-615D-4177-A895-47D474FC11CD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SuiviCompte.Services", "SuiviCompte.Services\SuiviCompte.Services.csproj", "{43C0D3EA-D92F-4176-A38B-23E479F1F5CE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{74DBDAFC-C284-4BDE-8720-C7B8F30731A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{74DBDAFC-C284-4BDE-8720-C7B8F30731A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{74DBDAFC-C284-4BDE-8720-C7B8F30731A1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{89F05E04-615D-4177-A895-47D474FC11CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{89F05E04-615D-4177-A895-47D474FC11CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{89F05E04-615D-4177-A895-47D474FC11CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{89F05E04-615D-4177-A895-47D474FC11CD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{43C0D3EA-D92F-4176-A38B-23E479F1F5CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{43C0D3EA-D92F-4176-A38B-23E479F1F5CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{43C0D3EA-D92F-4176-A38B-23E479F1F5CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{43C0D3EA-D92F-4176-A38B-23E479F1F5CE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
